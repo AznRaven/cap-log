@@ -14,16 +14,7 @@ function DefaultLayout(props) {
         />
       </head>
       <body>
-        {/* <nav className="navbar sticky-top bg-dark">
-          <div className="navbar sticky-top bg-dark d-flex ">
-            <a href="/" className="text-white">
-              Home
-            </a>
-            <a href="/capLogs" className="text-white">
-              capLogs
-            </a>
-          </div>
-        </nav> */}
+        
         <nav class="navbar sticky-top navbar-expand-lg bg-dark">
           <div class="container-fluid">
             <button
@@ -39,14 +30,10 @@ function DefaultLayout(props) {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link active text-white fs-3" aria-current="page" href="#">
-                    Home
-                  </a>
-                </li>
+                
                 <li class="nav-item">
                   <a class="nav-link text-white  fs-3" href="/capLogs">
-                  capLogs
+                  Captains Logs
                   </a>
                 </li>
     

@@ -1,4 +1,3 @@
-
 import React from "react";
 import DefaultLayout from "../layouts/DefaultLayout";
 
@@ -8,6 +7,7 @@ function Index(props) {
   return (
     <DefaultLayout>
       <div className="d-flex flex-wrap justify-content-around">
+        {/* buttons */}
         <div className="flex-column justify-content-center align-items-center">
           <h1>capLog</h1>
           <div className="d-flex">
@@ -31,7 +31,10 @@ function Index(props) {
         >
           {props.capLogs.map((capLog, index) => (
             <div className="capLog-item shadow d-flex flex-wrap justify-content-around my-3 align-items-center">
-              <li className="capLog-item shadow d-flex flex-wrap justify-content-around my-3 align-items-center" key={index}>
+              <li
+                className="capLog-item shadow d-flex flex-wrap justify-content-around my-3 align-items-center"
+                key={index}
+              >
                 <a href={`/capLogs/${capLog._id}`}>
                   <strong>{capLog.name}</strong>
                   <div></div>
@@ -41,7 +44,7 @@ function Index(props) {
             </div>
           ))}
         </ul>
-
+        {/* buttons */}
         <div className="d-flex">
           <a href="/capLogs/new">
             <button type="button" class="btn btn-outline-primary">
