@@ -4,9 +4,9 @@ const connectDB = require('./config/db')
 
 const app = express()
 connectDB()
-const PORT = 8083 
+const PORT = 8084 
 
-const capLogsRoutes = require('./routes/capLogsRoutes.js')
+const capLogRoutes = require('./routes/capLogRoutes.js')
 
 const { createEngine } = require('jsx-view-engine')
 
@@ -29,7 +29,7 @@ app.use((req,res,next)=> {
 })
 
 // app.use('/', require('./routes/index'))
-app.use('/capLogs', capLogsRoutes)
+app.use('/capLogs', capLogRoutes)
 
 // Listen to the given port
 app.listen(PORT, () => {

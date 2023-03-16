@@ -1,18 +1,18 @@
 
 
 // Load the capLog model
-const CapLogs = require("../models/CapLogsModels");
+const CapLog = require("../models/CapLogModels");
 
 // The callback functions originally the second argument from -> app.get('/', () => {})
 module.exports.index = async (req, res) => {
   try {
     // Use the capLog model to interact with the database
     // find will get all documents from the capLog collection
-    const capLogs = await CapLogs.find();
+    const capLogs = await CapLog.find();
     console.log(capLogs);
 
     // Looks in the views folder for "capLogs/Index" and passes { capLogs } data to the view (kind of like a server props object)
-    res.render("capLogs/Index", { capLogs });
+    res.render("capLog/Index", { capLogs });
   } catch (err) {
     console.log(err);
     res.send(err.message);

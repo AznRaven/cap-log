@@ -1,11 +1,12 @@
 const mongoose = require('mongoose')
-const capLogs = require('./capLogs')
 
 const Schema = mongoose.Schema
 
 const capLogsSchema = new Schema({
-    name: {type: String, required: true},
-    img: {type: String, required: true},
+    title: {type: String, required: true},
+    entry: {type: String, required: true},
+    shipIsBroken: {type: Boolean, required: true},
+    timestamps: {type: String, required: true},
 })
 
 const CapLogs = mongoose.model('capLogs', capLogsSchema)
