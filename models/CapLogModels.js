@@ -6,7 +6,7 @@ const capLogsSchema = new Schema({
     title: {type: String, required: true},
     entry: {type: String, required: true},
     shipIsBroken: {type: Boolean, required: true},
-    // timestamps: {type: String, required: true},
+    ts: {type: String, required: true},
 })
 
 const CapLogs = mongoose.model('capLogs', capLogsSchema)

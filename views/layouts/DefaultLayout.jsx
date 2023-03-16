@@ -32,7 +32,7 @@ function DefaultLayout(props) {
               <ul class="navbar-nav">
                 
                 <li class="nav-item">
-                  <a class="nav-link text-white  fs-3" href="/capLogs">
+                  <a class="nav-link text-white  fs-3" href="/capLog">
                   Captains Logs
                   </a>
                 </li>

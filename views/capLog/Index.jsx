@@ -23,7 +23,7 @@ function Index(props) {
         </div>
         
         <ul
-          className="d-flex flex-wrap justify-content-around my-3"
+          className="d-flex flex-wrap justify-content-around my-3 flex-column"
           style={{ listStyle: "none" }}
         >
           {props.capLog.map((capLog, index) => (
@@ -33,11 +33,14 @@ function Index(props) {
                 key={index}
               >
                 <a href={`/capLog/${capLog._id}`}>
-                  <strong>{capLog.title}</strong>
+                  <strong>Title: {capLog.title}</strong>
                   <div></div>
-                  <strong>{capLog.entry}</strong>
-                  <strong>{capLog.shipIsBroken}</strong>
-
+                  <strong>Entry: {capLog.entry}</strong>
+                  <br />
+                  <strong>USS Enterprise: {capLog.shipIsBroken}</strong>{capLog.shipIsBroken ? 'is NOT broken' : 'BROKEN!!!!! FIX IT ASAP BITCH'}
+                  <br />
+                  <strong>Time Stamp: {capLog.ts}</strong>
+                  
                 </a>
               </li>
             </div>

@@ -1,6 +1,12 @@
 import React from "react";
 
 function New() {
+  const date = new Date();
+
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+  let today = month + day + year
   return (
     <div>
       <h1>New Captains Log</h1>
@@ -11,9 +17,15 @@ function New() {
         <br />
         <br />
 
-        <label htmlFor="img">Entry:</label>
+        <label htmlFor="entry">Entry:</label>
         <br />
-        <input type="text" id="img" name="entry" />
+        <input type="text" id="entry" name="entry" />
+        <br />
+        <br />
+
+        <label htmlFor="ts">Time Stamp:</label>
+        <br />
+        <input type="text" id="ts" name="ts" value={Date.get} />
         <br />
         <br />
 
@@ -22,10 +34,11 @@ function New() {
           id="ship"
           name="ship"
           value="shipIsBroken"
-        ></input> 
-        <label htmlFor="ship">Ship Is Broken</label><br></br>
-      <br />
-      <br />
+        ></input>
+        <label htmlFor="ship">Ship Is Broken</label>
+        <br></br>
+        <br />
+        <br />
         <button>Submit</button>
       </form>
     </div>

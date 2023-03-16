@@ -22,8 +22,8 @@ module.exports.index = async (req, res) => {
 // Those anonymous callback functions now have names: "index" and "show"
 module.exports.show = async (req, res) => {
   try {
-    const capLog = await CapLog.findById(req.params.id);
-    res.render("capLog/Show", { capLog });
+    const caplog = await CapLog.findById(req.params.id);
+    res.render("capLog/Show", { caplog });
   } catch (err) {
     console.log(err);
     res.send(err.message);
@@ -72,8 +72,8 @@ module.exports.edit = async (req, res) => {
   console.log("GET /capLog/:id/edit");
   try {
     // const capLog = await CapLog.findById(req.params.id);
-    const capLog = await CapLog.findByIdAndUpdate(req.params.id, req.body);
-    res.render("capLog/Edit", { capLog });
+    const caplog = await CapLog.findByIdAndUpdate(req.params.id, req.body);
+    res.render("capLog/Edit", { caplog });
   } catch (err) {
     console.log(err);
     res.send(err.message);
@@ -85,14 +85,16 @@ module.exports.update = async (req, res) => {
   console.log("PUT /capLog/:id");
   console.log(req.body);
 
-  if (req.body.readyToEat) {
-    req.body.readyToEat = true;
+  if (req.body.shipIsBroken) {
+    req.body.shipIsBroken = true;
   } else {
-    req.body.readyToEat = false;
+    req.body.shipIsBroken = false;
   }
 
   try {
     // pass the id to find the document in the db and the form data (req.body) to update it
+    console.log('inside update')
+    console.log(req.body)
     await CapLog.findByIdAndUpdate(req.params.id, req.body);
     res.redirect(`/capLog/${req.params.id}`);
   } catch (err) {
