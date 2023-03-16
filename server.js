@@ -29,7 +29,7 @@ app.use((req,res,next)=> {
 })
 
 // app.use('/', require('./routes/index'))
-app.use('/capLogs', capLogRoutes)
+app.use('/capLog', capLogRoutes)
 
 // Listen to the given port
 app.listen(PORT, () => {

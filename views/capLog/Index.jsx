@@ -12,12 +12,12 @@ function Index(props) {
         </div>
         {/* buttons */}
         <div className="d-flex">
-          <a href="/capLogs/new">
+          <a href="/capLog/new">
             <button type="button" class="btn btn-outline-primary mx-3">
               Add...
             </button>
           </a>
-          <form action="/capLogs/clear?_method=DELETE" method="POST">
+          <form action="/capLog/clear?_method=DELETE" method="POST">
             <button class="btn btn-outline-danger">CLEAR</button>
           </form>
         </div>
@@ -26,13 +26,13 @@ function Index(props) {
           className="d-flex flex-wrap justify-content-around my-3"
           style={{ listStyle: "none" }}
         >
-          {props.capLogs.map((capLog, index) => (
+          {props.capLog.map((capLog, index) => (
             <div className="capLog-item shadow d-flex flex-wrap justify-content-around my-3 align-items-center">
               <li
                 className="capLog-item shadow d-flex flex-wrap justify-content-around my-3 align-items-center"
                 key={index}
               >
-                <a href={`/capLogs/${capLog._id}`}>
+                <a href={`/capLog/${capLog._id}`}>
                   <strong>{capLog.name}</strong>
                   <div></div>
                   <img src={`${capLog.img}.jpg`} alt={capLog.name} />
@@ -43,13 +43,13 @@ function Index(props) {
         </ul>
         {/* buttons */}
         <div className="d-flex">
-          <a href="/capLogs/new">
+          <a href="/capLog/new">
             <button type="button" class="btn btn-outline-primary  mx-3">
               Add...
             </button>
           </a>
 
-          <form action="/capLogs/clear?_method=DELETE" method="POST">
+          <form action="/capLog/clear?_method=DELETE" method="POST">
             <button class="btn btn-outline-danger">CLEAR</button>
           </form>
         </div>

@@ -8,11 +8,11 @@ module.exports.index = async (req, res) => {
   try {
     // Use the capLog model to interact with the database
     // find will get all documents from the capLog collection
-    const capLogs = await CapLog.find();
-    console.log(capLogs);
+    const capLog = await CapLog.find();
+    console.log(capLog);
 
-    // Looks in the views folder for "capLogs/Index" and passes { capLogs } data to the view (kind of like a server props object)
-    res.render("capLog/Index", { capLogs });
+    // Looks in the views folder for "capLog/Index" and passes { capLog } data to the view (kind of like a server props object)
+    res.render("capLog/Index", { capLog });
   } catch (err) {
     console.log(err);
     res.send(err.message);
@@ -22,22 +22,22 @@ module.exports.index = async (req, res) => {
 // Those anonymous callback functions now have names: "index" and "show"
 module.exports.show = async (req, res) => {
   try {
-    const capLog = await CapLogs.findById(req.params.id);
-    res.render("capLogs/Show", { capLog });
+    const capLog = await capLog.findById(req.params.id);
+    res.render("capLog/Show", { capLog });
   } catch (err) {
     console.log(err);
     res.send(err.message);
   }
 };
 
-// GET /capLogs/new
+// GET /capLog/new
 module.exports.new = (req, res) => {
-  res.render("capLogs/New");
+  res.render("capLog/New");
 };
 
-// POST /capLogs
+// POST /capLog
 module.exports.create = async (req, res) => {
-  console.log("POST /capLogs");
+  console.log("POST /capLog");
   if (req.body.shipIsBroken) {
     req.body.shipIsBroken = true;
   } else {
@@ -45,44 +45,44 @@ module.exports.create = async (req, res) => {
   }
   try {
     // use the model to interact with db and create a new document in the capLog collection
-    const result = await CapLogs.create(req.body);
+    const result = await capLog.create(req.body);
     console.log(result);
   } catch (err) {
     console.log(err);
   }
 
-  res.redirect("/capLogs");
+  res.redirect("/capLog");
 };
 
-// DELETE /capLogs/:name
+// DELETE /capLog/:name
 module.exports.delete = async(req, res) => {
   try {
-    console.log("DELETE /capLogs/:id");
-    await CapLogs.findByIdAndDelete(req.params.id);
+    console.log("DELETE /capLog/:id");
+    await capLog.findByIdAndDelete(req.params.id);
     console.log(req.params.id);
-    res.redirect("/capLogs");
+    res.redirect("/capLog");
   } catch (err) {
     console.log(err);
     res.send(err.message);
   }
 };
 
-// GET /capLogs/:name/edit
+// GET /capLog/:name/edit
 module.exports.edit = async (req, res) => {
-  console.log("GET /capLogs/:id/edit");
+  console.log("GET /capLog/:id/edit");
   try {
-    // const capLog = await capLogs.findById(req.params.id);
-    const capLog = await CapLogs.findByIdAndUpdate(req.params.id, req.body);
-    res.render("capLogs/Edit", { capLog });
+    // const capLog = await capLog.findById(req.params.id);
+    const capLog = await capLog.findByIdAndUpdate(req.params.id, req.body);
+    res.render("capLog/Edit", { capLog });
   } catch (err) {
     console.log(err);
     res.send(err.message);
   }
 };
 
-// PUT /capLogs/:id
+// PUT /capLog/:id
 module.exports.update = async (req, res) => {
-  console.log("PUT /capLogs/:id");
+  console.log("PUT /capLog/:id");
   console.log(req.body);
 
   if (req.body.readyToEat) {
@@ -93,8 +93,8 @@ module.exports.update = async (req, res) => {
 
   try {
     // pass the id to find the document in the db and the form data (req.body) to update it
-    await CapLogs.findByIdAndUpdate(req.params.id, req.body);
-    res.redirect(`/capLogs/${req.params.id}`);
+    await capLog.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect(`/capLog/${req.params.id}`);
   } catch (err) {
     console.log(err);
     res.send(err.message);
@@ -102,11 +102,11 @@ module.exports.update = async (req, res) => {
 };
 
 module.exports.seed = async (req, res) => {
-  console.log("POST /capLogs/seed");
+  console.log("POST /capLog/seed");
   try {
-    await CapLogs.deleteMany({}); // Keep empty to delete everything
-    capLogs.create(capLogs);
-    res.redirect("/capLogs");
+    await capLog.deleteMany({}); // Keep empty to delete everything
+    capLog.create(capLog);
+    res.redirect("/capLog");
   } catch (err) {
     console.log(err);
     res.send(err.message);
@@ -114,10 +114,10 @@ module.exports.seed = async (req, res) => {
 };
 
 module.exports.clear = async (req, res) => {
-  console.log("DELETE /capLogs/clear");
+  console.log("DELETE /capLog/clear");
   try {
-    await CapLogs.deleteMany({});
-    res.redirect("/capLogs");
+    await capLog.deleteMany({});
+    res.redirect("/capLog");
   } catch (err) {
     console.log(err);
     res.send(err.message);
