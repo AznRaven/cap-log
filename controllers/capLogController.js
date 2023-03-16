@@ -38,7 +38,11 @@ module.exports.new = (req, res) => {
 // POST /capLogs
 module.exports.create = async (req, res) => {
   console.log("POST /capLogs");
-
+  if (req.body.shipIsBroken) {
+    req.body.shipIsBroken = true;
+  } else {
+    req.body.shipIsBroken = false;
+  }
   try {
     // use the model to interact with db and create a new document in the capLog collection
     const result = await CapLogs.create(req.body);
