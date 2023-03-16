@@ -6,7 +6,7 @@ function New() {
   let day = date.getDate();
   let month = date.getMonth() + 1;
   let year = date.getFullYear();
-  let today = month + day + year
+  let today = `${month}/${day}/${year}`
   return (
     <div>
       <h1>New Captains Log</h1>
@@ -25,7 +25,7 @@ function New() {
 
         <label htmlFor="ts">Time Stamp:</label>
         <br />
-        <input type="text" id="ts" name="ts" value={Date.get} />
+        <input type="text" id="ts" name="ts" value={today} />
         <br />
         <br />
 
