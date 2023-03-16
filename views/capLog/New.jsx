@@ -31,11 +31,11 @@ function New() {
 
         <input
           type="checkbox"
-          id="ship"
-          name="ship"
+          id="shipIsBroken"
+          name="shipIsBroken"
           value="shipIsBroken"
         ></input>
-        <label htmlFor="ship">Ship Is Broken</label>
+        <label htmlFor="shipIsBroken">Ship Is Broken</label>
         <br></br>
         <br />
         <br />
