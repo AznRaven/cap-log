@@ -6,25 +6,22 @@ function Index(props) {
   // can't use event listeners in the same way
   return (
     <DefaultLayout>
-      <div className="d-flex flex-wrap justify-content-around">
-        {/* buttons */}
+      <div className="d-flex flex-column flex-wrap justify-content-around align-items-center">
         <div className="flex-column justify-content-center align-items-center">
-          <h1>capLog</h1>
-          <div className="d-flex">
-            <a href="/capLogs/new">
-              <button type="button" class="btn btn-outline-primary">
-                Add...
-              </button>
-            </a>
-            <form action="/capLogs/seed" method="POST">
-              <button class="btn btn-outline-warning mx-5">SEED</button>
-            </form>
-            <form action="/capLogs/clear?_method=DELETE" method="POST">
-              <button class="btn btn-outline-danger">CLEAR</button>
-            </form>
-          </div>
+          <h1>Captain's Log</h1>
         </div>
-
+        {/* buttons */}
+        <div className="d-flex">
+          <a href="/capLogs/new">
+            <button type="button" class="btn btn-outline-primary mx-3">
+              Add...
+            </button>
+          </a>
+          <form action="/capLogs/clear?_method=DELETE" method="POST">
+            <button class="btn btn-outline-danger">CLEAR</button>
+          </form>
+        </div>
+        
         <ul
           className="d-flex flex-wrap justify-content-around my-3"
           style={{ listStyle: "none" }}
@@ -47,13 +44,11 @@ function Index(props) {
         {/* buttons */}
         <div className="d-flex">
           <a href="/capLogs/new">
-            <button type="button" class="btn btn-outline-primary">
+            <button type="button" class="btn btn-outline-primary  mx-3">
               Add...
             </button>
           </a>
-          <form action="/capLogs/seed" method="POST">
-            <button class="btn btn-outline-warning mx-5">SEED</button>
-          </form>
+
           <form action="/capLogs/clear?_method=DELETE" method="POST">
             <button class="btn btn-outline-danger">CLEAR</button>
           </form>
