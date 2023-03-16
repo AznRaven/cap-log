@@ -33,9 +33,11 @@ function Index(props) {
                 key={index}
               >
                 <a href={`/capLog/${capLog._id}`}>
-                  <strong>{capLog.name}</strong>
+                  <strong>{capLog.title}</strong>
                   <div></div>
-                  <img src={`${capLog.img}.jpg`} alt={capLog.name} />
+                  <strong>{capLog.entry}</strong>
+                  <strong>{capLog.shipIsBroken}</strong>
+
                 </a>
               </li>
             </div>

@@ -22,7 +22,7 @@ module.exports.index = async (req, res) => {
 // Those anonymous callback functions now have names: "index" and "show"
 module.exports.show = async (req, res) => {
   try {
-    const capLog = await capLog.findById(req.params.id);
+    const capLog = await CapLog.findById(req.params.id);
     res.render("capLog/Show", { capLog });
   } catch (err) {
     console.log(err);
@@ -45,7 +45,7 @@ module.exports.create = async (req, res) => {
   }
   try {
     // use the model to interact with db and create a new document in the capLog collection
-    const result = await capLog.create(req.body);
+    const result = await CapLog.create(req.body);
     console.log(result);
   } catch (err) {
     console.log(err);
@@ -58,7 +58,7 @@ module.exports.create = async (req, res) => {
 module.exports.delete = async(req, res) => {
   try {
     console.log("DELETE /capLog/:id");
-    await capLog.findByIdAndDelete(req.params.id);
+    await CapLog.findByIdAndDelete(req.params.id);
     console.log(req.params.id);
     res.redirect("/capLog");
   } catch (err) {
@@ -71,8 +71,8 @@ module.exports.delete = async(req, res) => {
 module.exports.edit = async (req, res) => {
   console.log("GET /capLog/:id/edit");
   try {
-    // const capLog = await capLog.findById(req.params.id);
-    const capLog = await capLog.findByIdAndUpdate(req.params.id, req.body);
+    // const capLog = await CapLog.findById(req.params.id);
+    const capLog = await CapLog.findByIdAndUpdate(req.params.id, req.body);
     res.render("capLog/Edit", { capLog });
   } catch (err) {
     console.log(err);
@@ -93,7 +93,7 @@ module.exports.update = async (req, res) => {
 
   try {
     // pass the id to find the document in the db and the form data (req.body) to update it
-    await capLog.findByIdAndUpdate(req.params.id, req.body);
+    await CapLog.findByIdAndUpdate(req.params.id, req.body);
     res.redirect(`/capLog/${req.params.id}`);
   } catch (err) {
     console.log(err);
@@ -104,8 +104,8 @@ module.exports.update = async (req, res) => {
 module.exports.seed = async (req, res) => {
   console.log("POST /capLog/seed");
   try {
-    await capLog.deleteMany({}); // Keep empty to delete everything
-    capLog.create(capLog);
+    await CapLog.deleteMany({}); // Keep empty to delete everything
+    CapLog.create(capLog);
     res.redirect("/capLog");
   } catch (err) {
     console.log(err);
@@ -116,7 +116,7 @@ module.exports.seed = async (req, res) => {
 module.exports.clear = async (req, res) => {
   console.log("DELETE /capLog/clear");
   try {
-    await capLog.deleteMany({});
+    await CapLog.deleteMany({});
     res.redirect("/capLog");
   } catch (err) {
     console.log(err);

@@ -4,7 +4,7 @@ function New() {
   return (
     <div>
       <h1>New Captains Log</h1>
-      <form action="/capLogs" method="POST">
+      <form action="/capLog" method="POST">
         <label htmlFor="ttl">Title:</label>
         <br />
         <input type="text" id="ttl" name="title" />
@@ -13,7 +13,7 @@ function New() {
 
         <label htmlFor="img">Entry:</label>
         <br />
-        <input type="text" id="img" name="img" />
+        <input type="text" id="img" name="entry" />
         <br />
         <br />
 
@@ -23,7 +23,7 @@ function New() {
           name="ship"
           value="shipIsBroken"
         ></input> 
-        <label for="ship">Ship Is Broken</label><br></br>
+        <label htmlFor="ship">Ship Is Broken</label><br></br>
       <br />
       <br />
         <button>Submit</button>
