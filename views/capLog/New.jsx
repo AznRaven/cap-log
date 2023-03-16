@@ -19,10 +19,13 @@ function New() {
 
         <input
           type="checkbox"
-          id="shipIsBroken"
-          name="shipIsBroken"
+          id="ship"
+          name="ship"
           value="shipIsBroken"
-        ></input>
+        ></input> 
+        <label for="ship">Ship Is Broken</label><br></br>
+      <br />
+      <br />
         <button>Submit</button>
       </form>
     </div>
